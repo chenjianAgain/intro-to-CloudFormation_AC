@@ -78,6 +78,30 @@ Resources:
             # start nginx
             systemctl enable nginx
             systemctl start nginx
+            
+            wget https://raw.githubusercontent.com/chenjianAgain/intro-to-CloudFormation_AC/master/03%20Setting%20up%20an%20EC2%20Instance/httpd.conf && sudo cp nginx.conf /etc/httpd/conf/httpd.conf
+            # start httpd
+            systemctl enable httpd
+            systemctl start httpd
+
+  MySecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Open Ports 22 and 80
+      SecurityGroupIngress:
+      - IpProtocol: tcp
+        FromPort: '22'
+        ToPort: '22'
+        CidrIp: 0.0.0.0/0
+      - IpProtocol: tcp
+        FromPort: '80'
+        ToPort: '80'
+        CidrIp: 0.0.0.0/0
+Outputs:
+  Website:
+    Description: The Public DNS for the EC2 Instance
+    Value: !Sub 'http://${EC2Instance.PublicDnsName}'
+
 
   MySecurityGroup:
     Type: AWS::EC2::SecurityGroup
