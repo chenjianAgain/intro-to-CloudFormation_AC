@@ -28,7 +28,6 @@ Resources:
           packages: 
             yum:
               httpd: []
-              nginx: []
               php: []
               java-1.8.0-openjdk-devel: []
           files: 
@@ -63,7 +62,18 @@ Resources:
             /opt/aws/bin/cfn-init -v --stack ${AWS::StackName} --resource EC2Instance  --region ${AWS::Region}
             
             # Custom Code
+            rpm --import 'http://nginx.org/keys/nginx_signing.key'
+            echo '[nginx]
+            name=nginx repo
+            baseurl=http://nginx.org/packages/centos/$releasever/$basearch/
+            gpgcheck=1
+            enabled=1' | sudo bash -c 'cat > /etc/yum.repos.d/nginx.repo'
+            
+            # install nginx
+            yum install nginx
+            # add nginx folder
             mkdir -p /var/log/nginx
+            # config nginx
             ( cat << ENDHERE
               ## ##
               #user  nobody;
