@@ -71,11 +71,13 @@ Resources:
             
             # install nginx
             yum install -y nginx
-            # add nginx folder
+            # add log folder for nginx
             mkdir -p /var/log/nginx
             # config nginx
             wget https://raw.githubusercontent.com/chenjianAgain/intro-to-CloudFormation_AC/master/03%20Setting%20up%20an%20EC2%20Instance/nginx.conf && sudo cp nginx.conf /etc/nginx/nginx.conf
-
+            # start nginx
+            systemctl enable nginx
+            systemctl start nginx
 
   MySecurityGroup:
     Type: AWS::EC2::SecurityGroup
