@@ -1,10 +1,12 @@
 Parameters:
   NameOfService:
     Description: "The name of the service this stack is to be used for."
+    Default: "Test Hybris"
     Type: String
   KeyName:
     Description: Name of an existing EC2 KeyPair to enable SSH access into the server
     Type: AWS::EC2::KeyPair::KeyName
+    Default: "Joseph-ACG-Demo"
 Mappings:
   RegionMap:
     us-east-1:
