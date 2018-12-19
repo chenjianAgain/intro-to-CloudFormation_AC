@@ -65,7 +65,7 @@ Resources:
             rpm --import 'http://nginx.org/keys/nginx_signing.key'
             echo '[nginx]
             name=nginx repo
-            baseurl=http://nginx.org/packages/centos/$releasever/$basearch/
+            baseurl=http://nginx.org/packages/centos/7/x86_64
             gpgcheck=1
             enabled=1' | sudo bash -c 'cat > /etc/yum.repos.d/nginx.repo'
             
