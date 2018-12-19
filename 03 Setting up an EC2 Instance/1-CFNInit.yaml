@@ -50,7 +50,7 @@ Resources:
         - !Ref MySecurityGroup
       Tags:
         - Key: Name
-          Value: !Ref NameOfService
+          Value: !Ref ${AWS::StackName}
       KeyName: !Ref KeyName
       UserData:
         'Fn::Base64': 
