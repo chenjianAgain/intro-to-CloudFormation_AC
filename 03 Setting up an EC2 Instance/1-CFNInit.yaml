@@ -79,7 +79,7 @@ Resources:
             systemctl enable nginx
             systemctl start nginx
             
-            wget https://raw.githubusercontent.com/chenjianAgain/intro-to-CloudFormation_AC/master/03%20Setting%20up%20an%20EC2%20Instance/httpd.conf && sudo cp nginx.conf /etc/httpd/conf/httpd.conf
+            wget https://raw.githubusercontent.com/chenjianAgain/intro-to-CloudFormation_AC/master/03%20Setting%20up%20an%20EC2%20Instance/httpd.conf && sudo cp httpd.conf /etc/httpd/conf/httpd.conf
             # start httpd
             systemctl enable httpd
             systemctl start httpd
