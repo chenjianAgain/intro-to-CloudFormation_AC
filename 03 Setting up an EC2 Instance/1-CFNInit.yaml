@@ -70,7 +70,7 @@ Resources:
             enabled=1' | sudo bash -c 'cat > /etc/yum.repos.d/nginx.repo'
             
             # install nginx
-            yum install nginx
+            yum install -y nginx
             # add nginx folder
             mkdir -p /var/log/nginx
             # config nginx
